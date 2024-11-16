@@ -71,7 +71,7 @@ async function extractJson(str: string) {
           } catch (error) {
             throw new Error("Failed to parse JSON: ");
           }
-          return parsedData;
+          return parsedData["user"];
         }
       } catch (e) {
         console.error(e);
