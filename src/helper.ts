@@ -63,7 +63,11 @@ async function extractJson(str: string) {
           // If a match is found, parse it as JSON
           if (match && match[1]) {
             try {
-              return JSON.parse(match[1]);
+              let user_data = JSON.parse(match[1]);
+              user_data["avatar"]["fullUrl"] = user_data["avatar"][
+                "fullUrl"
+              ].replaceAll("u0026", "&");
+              return user_data;
             } catch (error) {
               console.error("Error parsing user data:", error);
             }
